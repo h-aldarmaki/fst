@@ -7,6 +7,7 @@ accessed here:
 
   https://github.com/nltk/nltk_contrib.git
 
-The modifications are only to make the code work with python3. 
+The modifications are mainly to make the code work with python3. 
+One more modification in fst.py to randomize output of non-deterministic FSTs
 
 """
