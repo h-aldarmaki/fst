@@ -1,4 +1,5 @@
 # NOTE : This file has been modified slightly by Hanan Aldarmaki to work with Python 3.x
+#        Also, outgoing() function is modified to randomize output of non-deterministic FSTs
 
 
 # Natural Language Toolkit: Finite State Transducers
@@ -241,7 +242,14 @@ class FST(object):
         the FST's state while iterating are undefined, so if you plan
         to modify the state, you should copy the outgoing transition
         arcs into a list first."""
-        return iter(self._outgoing[state])
+        
+        #return iter(self._outgoing[state])
+        
+        # Modified by Hanan to randomize output of non-deterministic FSTs
+        
+        import random
+        randomized_outgoing = random.sample(self._outgoing[state], len(self._outgoing[state]))
+        return(randomized_outgoing)
 
     def is_final(self, state):
         """Return true if the state with the given state label is
